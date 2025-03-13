@@ -1,24 +1,39 @@
 using System;
+using System.Collections.Generic;
 using System.Text;
+using System.Threading;
+using Newtonsoft.Json.Linq;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class RabbitMQListener : MonoBehaviour
 {
-    private const string HostName = "kebnekaise.lmq.cloudamqp.com";
-    private const string UserName = "xknvjswf";
-    private const string Password = "RP_J3HdB3aAkig08yUF9abygQrNVyHwz";
-    private const string VirtualHost = "xknvjswf";
     private const string QueueName = "events_queue";
 
     private IConnection connection;
     private IModel channel;
 
+    private readonly Queue<Action> mainThreadActions = new Queue<Action>();
+
     void Start()
     {
         ConnectToRabbitMQ();
+    }
+
+    void Update()
+    {
+        // Выполняем все действия, добавленные в главный поток
+        while (mainThreadActions.Count > 0)
+        {
+            Action action = null;
+            lock (mainThreadActions)
+            {
+                if (mainThreadActions.Count > 0)
+                    action = mainThreadActions.Dequeue();
+            }
+            action?.Invoke();
+        }
     }
 
     void ConnectToRabbitMQ()
@@ -27,7 +42,7 @@ public class RabbitMQListener : MonoBehaviour
         {
             var factory = new ConnectionFactory()
             {
-                Uri = new Uri("amqps://" + UserName + ":" + Password + "@" + HostName + "/" + VirtualHost),
+                Uri = new Uri("amqp://jonh:123@rabbitmq.reaport.ru"),
                 DispatchConsumersAsync = true
             };
 
@@ -43,7 +58,11 @@ public class RabbitMQListener : MonoBehaviour
                 var message = Encoding.UTF8.GetString(body);
                 Debug.Log("[RabbitMQ] Received: " + message);
 
-                // Здесь можно добавить обработку команд
+                // Передаём обработку в главный поток
+                lock (mainThreadActions)
+                {
+                    mainThreadActions.Enqueue(() => ProcessMessage(message));
+                }
 
                 await System.Threading.Tasks.Task.Yield();
             };
@@ -55,6 +74,48 @@ public class RabbitMQListener : MonoBehaviour
         catch (Exception ex)
         {
             Debug.LogError("[RabbitMQ] Connection error: " + ex.Message);
+        }
+    }
+
+    void ProcessMessage(string message)
+    {
+        try
+        {
+            var json = JObject.Parse(message);
+            var type = json["type"]?.ToString();
+            var data = json["data"];
+
+            if (type == "vehicle_registered")
+            {
+                string nodeId = data["garrage_node_id"]?.ToString();
+                string vehicleId = data["vehicle_id"]?.ToString();
+                string vehicleType = data["vehicle_type"]?.ToString();
+
+                Debug.Log($"Spawning vehicle {vehicleId} ({vehicleType}) at node {nodeId}");
+
+                // Вызываем VehicleManager для спавна
+                VehicleManager.Instance.SpawnVehicle(nodeId, vehicleId, vehicleType);
+            }
+            else if (type == "vehicle_left_node")
+            {
+                string fromNode = data["from"]?.ToString();
+                string toNode = data["to"]?.ToString();
+                string vehicleId = data["vehicle_id"]?.ToString();
+                float distance = float.Parse(data["distance"]?.ToString());
+
+                Debug.Log($"Moving vehicle {vehicleId} from {fromNode} to {toNode}");
+
+                // Вызываем VehicleManager для перемещения
+                VehicleManager.Instance.MoveVehicle(vehicleId, fromNode, toNode, distance);
+            }
+            else if (type == "map_refreshed")
+            {
+                VehicleManager.Instance.RefreshMap();
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("[RabbitMQ] Error processing message: " + ex.Message);
         }
     }
 
