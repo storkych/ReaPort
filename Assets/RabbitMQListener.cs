@@ -24,15 +24,12 @@ public class RabbitMQListener : MonoBehaviour
     void Update()
     {
         // Выполняем все действия, добавленные в главный поток
-        while (mainThreadActions.Count > 0)
+        lock (mainThreadActions)
         {
-            Action action = null;
-            lock (mainThreadActions)
+            while (mainThreadActions.Count > 0)
             {
-                if (mainThreadActions.Count > 0)
-                    action = mainThreadActions.Dequeue();
+                mainThreadActions.Dequeue()?.Invoke();
             }
-            action?.Invoke();
         }
     }
 
@@ -56,11 +53,15 @@ public class RabbitMQListener : MonoBehaviour
             {
                 var body = ea.Body.ToArray();
                 var message = Encoding.UTF8.GetString(body);
-                Debug.Log("[RabbitMQ] Received: " + message);
 
-                // Передаём обработку в главный поток
                 lock (mainThreadActions)
                 {
+                    mainThreadActions.Enqueue(() =>
+                    {
+                        Debug.Log("[RabbitMQ] Received: " + message);
+                        UiManager.Instance.LogMessage(message);
+                    });
+
                     mainThreadActions.Enqueue(() => ProcessMessage(message));
                 }
 
@@ -69,11 +70,25 @@ public class RabbitMQListener : MonoBehaviour
 
             channel.BasicConsume(queue: QueueName, autoAck: true, consumer: consumer);
 
-            Debug.Log("[RabbitMQ] Connected and listening to " + QueueName);
+            lock (mainThreadActions)
+            {
+                mainThreadActions.Enqueue(() =>
+                {
+                    Debug.Log("[RabbitMQ] Connected and listening to " + QueueName);
+                    UiManager.Instance.LogMessage("[RabbitMQ] Connected and listening to " + QueueName);
+                });
+            }
         }
         catch (Exception ex)
         {
-            Debug.LogError("[RabbitMQ] Connection error: " + ex.Message);
+            lock (mainThreadActions)
+            {
+                mainThreadActions.Enqueue(() =>
+                {
+                    UiManager.Instance.LogMessage("[RabbitMQ] Connection error: " + ex.Message);
+                    Debug.LogError("[RabbitMQ] Connection error: " + ex.Message);
+                });
+            }
         }
     }
 
@@ -93,7 +108,6 @@ public class RabbitMQListener : MonoBehaviour
 
                 Debug.Log($"Spawning vehicle {vehicleId} ({vehicleType}) at node {nodeId}");
 
-                // Вызываем VehicleManager для спавна
                 VehicleManager.Instance.SpawnVehicle(nodeId, vehicleId, vehicleType);
             }
             else if (type == "vehicle_left_node")
@@ -105,7 +119,6 @@ public class RabbitMQListener : MonoBehaviour
 
                 Debug.Log($"Moving vehicle {vehicleId} from {fromNode} to {toNode}");
 
-                // Вызываем VehicleManager для перемещения
                 VehicleManager.Instance.MoveVehicle(vehicleId, fromNode, toNode, distance);
             }
             else if (type == "map_refreshed")
