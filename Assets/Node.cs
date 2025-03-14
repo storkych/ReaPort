@@ -7,7 +7,7 @@ public class Node : MonoBehaviour
     public bool isActionNode;
     public Color GizmoColor = Color.green;
     public List<Node> connectedNodes = new List<Node>(); // Связанные узлы
-    private List<Vehicle> occupyingVehicles = new List<Vehicle>(); // Машины в этой ноде
+    [SerializeField] private List<Vehicle> occupyingVehicles = new List<Vehicle>(); // Машины в этой ноде
 
     private void OnDrawGizmos()
     {

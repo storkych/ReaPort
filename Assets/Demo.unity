@@ -1295,6 +1295,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 995815654}
+  occupyingVehicles: []
 --- !u!4 &46253037
 Transform:
   m_ObjectHideFlags: 0
@@ -2504,6 +2505,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1562750447}
+        m_TargetAssemblyTypeName: FlightBoardController, Assembly-CSharp
+        m_MethodName: StopUpdating
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &82000687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3105,6 +3118,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 995815654}
+  occupyingVehicles: []
 --- !u!4 &110664248
 Transform:
   m_ObjectHideFlags: 0
@@ -3713,6 +3727,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 995815654}
+  occupyingVehicles: []
 --- !u!1001 &127784809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3825,6 +3840,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 765828811}
+  occupyingVehicles: []
 --- !u!4 &140931625
 Transform:
   m_ObjectHideFlags: 0
@@ -5104,7 +5120,7 @@ MonoBehaviour:
   GizmoColor: {r: 0.17054713, g: 1, b: 0, a: 1}
   connectedNodes:
   - {fileID: 1004863822}
-  - {fileID: 765828811}
+  occupyingVehicles: []
 --- !u!4 &200984091
 Transform:
   m_ObjectHideFlags: 0
@@ -6072,6 +6088,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 995815654}
+  occupyingVehicles: []
 --- !u!4 &254146264
 Transform:
   m_ObjectHideFlags: 0
@@ -6698,7 +6715,7 @@ MonoBehaviour:
   GizmoColor: {r: 0.17054713, g: 1, b: 0, a: 1}
   connectedNodes:
   - {fileID: 2050205588}
-  - {fileID: 995815654}
+  occupyingVehicles: []
 --- !u!4 &288234851
 Transform:
   m_ObjectHideFlags: 0
@@ -6894,6 +6911,7 @@ MonoBehaviour:
   - {fileID: 2130149996}
   - {fileID: 2030554683}
   - {fileID: 1441069271}
+  occupyingVehicles: []
 --- !u!4 &295080205
 Transform:
   m_ObjectHideFlags: 0
@@ -7931,6 +7949,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0, b: 0.05490196, a: 1}
   connectedNodes:
   - {fileID: 480515508}
+  occupyingVehicles: []
 --- !u!4 &336841474
 Transform:
   m_ObjectHideFlags: 0
@@ -10471,6 +10490,7 @@ MonoBehaviour:
   isActionNode: 0
   GizmoColor: {r: 1, g: 0, b: 0.05490196, a: 1}
   connectedNodes: []
+  occupyingVehicles: []
 --- !u!4 &469210930
 Transform:
   m_ObjectHideFlags: 0
@@ -10740,6 +10760,7 @@ MonoBehaviour:
   isActionNode: 0
   GizmoColor: {r: 1, g: 0, b: 0.05490196, a: 1}
   connectedNodes: []
+  occupyingVehicles: []
 --- !u!4 &480515509
 Transform:
   m_ObjectHideFlags: 0
@@ -11229,6 +11250,7 @@ MonoBehaviour:
   - {fileID: 295080204}
   - {fileID: 1890733930}
   - {fileID: 2096432293}
+  occupyingVehicles: []
 --- !u!4 &517915990
 Transform:
   m_ObjectHideFlags: 0
@@ -12128,6 +12150,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 765828811}
+  occupyingVehicles: []
 --- !u!4 &568415650
 Transform:
   m_ObjectHideFlags: 0
@@ -12540,6 +12563,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 765828811}
+  occupyingVehicles: []
 --- !u!4 &587299552
 Transform:
   m_ObjectHideFlags: 0
@@ -12907,6 +12931,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 765828811}
+  occupyingVehicles: []
 --- !u!4 &611720133
 Transform:
   m_ObjectHideFlags: 0
@@ -15217,6 +15242,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 995815654}
+  occupyingVehicles: []
 --- !u!4 &713193596
 Transform:
   m_ObjectHideFlags: 0
@@ -15968,6 +15994,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0, b: 0.74078894, a: 1}
   connectedNodes:
   - {fileID: 517915989}
+  occupyingVehicles: []
 --- !u!4 &765828812
 Transform:
   m_ObjectHideFlags: 0
@@ -16141,6 +16168,7 @@ MonoBehaviour:
   GizmoColor: {r: 0, g: 1, b: 0.90198374, a: 1}
   connectedNodes:
   - {fileID: 288234850}
+  occupyingVehicles: []
 --- !u!4 &775380055
 Transform:
   m_ObjectHideFlags: 0
@@ -17994,6 +18022,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 995815654}
+  occupyingVehicles: []
 --- !u!4 &873278977
 Transform:
   m_ObjectHideFlags: 0
@@ -19734,6 +19763,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 995815654}
+  occupyingVehicles: []
 --- !u!4 &957441760
 Transform:
   m_ObjectHideFlags: 0
@@ -20729,6 +20759,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0, b: 0.74078894, a: 1}
   connectedNodes:
   - {fileID: 517915989}
+  occupyingVehicles: []
 --- !u!4 &995815655
 Transform:
   m_ObjectHideFlags: 0
@@ -21082,6 +21113,8 @@ MonoBehaviour:
   GizmoColor: {r: 0, g: 1, b: 0.90198374, a: 1}
   connectedNodes:
   - {fileID: 336841473}
+  - {fileID: 765828811}
+  occupyingVehicles: []
 --- !u!4 &1004863823
 Transform:
   m_ObjectHideFlags: 0
@@ -22881,6 +22914,7 @@ MonoBehaviour:
   - {fileID: 1185667235}
   - {fileID: 775380054}
   - {fileID: 2099742213}
+  occupyingVehicles: []
 --- !u!1001 &1078470761
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24168,6 +24202,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 765828811}
+  occupyingVehicles: []
 --- !u!4 &1157531704
 Transform:
   m_ObjectHideFlags: 0
@@ -25364,6 +25399,7 @@ MonoBehaviour:
   GizmoColor: {r: 0, g: 1, b: 0.90198374, a: 1}
   connectedNodes:
   - {fileID: 200984090}
+  occupyingVehicles: []
 --- !u!4 &1185667236
 Transform:
   m_ObjectHideFlags: 0
@@ -27980,6 +28016,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 765828811}
+  occupyingVehicles: []
 --- !u!4 &1354906475
 Transform:
   m_ObjectHideFlags: 0
@@ -28849,6 +28886,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0, b: 0.05476761, a: 1}
   connectedNodes:
   - {fileID: 1077727223}
+  occupyingVehicles: []
 --- !u!4 &1392037411
 Transform:
   m_ObjectHideFlags: 0
@@ -29667,6 +29705,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 765828811}
+  occupyingVehicles: []
 --- !u!4 &1441069272
 Transform:
   m_ObjectHideFlags: 0
@@ -29903,6 +29942,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 765828811}
+  occupyingVehicles: []
 --- !u!4 &1453747083
 Transform:
   m_ObjectHideFlags: 0
@@ -30075,6 +30115,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1562750447}
+        m_TargetAssemblyTypeName: FlightBoardController, Assembly-CSharp
+        m_MethodName: StartUpdating
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -34724,6 +34776,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 765828811}
+  occupyingVehicles: []
 --- !u!4 &1674016619
 Transform:
   m_ObjectHideFlags: 0
@@ -35058,6 +35111,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 995815654}
+  occupyingVehicles: []
 --- !u!4 &1683745030
 Transform:
   m_ObjectHideFlags: 0
@@ -36376,6 +36430,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0, b: 0.05490196, a: 1}
   connectedNodes:
   - {fileID: 469210929}
+  occupyingVehicles: []
 --- !u!4 &1740516695
 Transform:
   m_ObjectHideFlags: 0
@@ -36651,6 +36706,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 995815654}
+  occupyingVehicles: []
 --- !u!4 &1753854311
 Transform:
   m_ObjectHideFlags: 0
@@ -38696,6 +38752,10 @@ MonoBehaviour:
   - {fileID: 2030554683}
   - {fileID: 1441069271}
   - {fileID: 1392037410}
+  - {fileID: 1740516694}
+  - {fileID: 336841473}
+  - {fileID: 469210929}
+  - {fileID: 480515508}
 --- !u!1001 &1872739832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39159,6 +39219,7 @@ MonoBehaviour:
   - {fileID: 1947001248}
   - {fileID: 1895148630}
   - {fileID: 46253036}
+  occupyingVehicles: []
 --- !u!4 &1890733931
 Transform:
   m_ObjectHideFlags: 0
@@ -39218,6 +39279,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 995815654}
+  occupyingVehicles: []
 --- !u!4 &1895148631
 Transform:
   m_ObjectHideFlags: 0
@@ -40202,6 +40264,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 995815654}
+  occupyingVehicles: []
 --- !u!4 &1947001249
 Transform:
   m_ObjectHideFlags: 0
@@ -41758,6 +41821,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 995815654}
+  occupyingVehicles: []
 --- !u!4 &2027819866 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 1a8e4b3969c3920408ff12520c67c779, type: 3}
@@ -41797,6 +41861,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 765828811}
+  occupyingVehicles: []
 --- !u!4 &2030554684
 Transform:
   m_ObjectHideFlags: 0
@@ -42193,6 +42258,8 @@ MonoBehaviour:
   GizmoColor: {r: 0, g: 1, b: 0.90198374, a: 1}
   connectedNodes:
   - {fileID: 1740516694}
+  - {fileID: 995815654}
+  occupyingVehicles: []
 --- !u!4 &2050205589
 Transform:
   m_ObjectHideFlags: 0
@@ -43149,6 +43216,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 1077727223}
+  occupyingVehicles: []
 --- !u!4 &2096432294
 Transform:
   m_ObjectHideFlags: 0
@@ -43324,6 +43392,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0, b: 0.7411765, a: 1}
   connectedNodes:
   - {fileID: 517915989}
+  occupyingVehicles: []
 --- !u!4 &2099742214
 Transform:
   m_ObjectHideFlags: 0
@@ -43860,6 +43929,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.8302624, b: 0, a: 1}
   connectedNodes:
   - {fileID: 765828811}
+  occupyingVehicles: []
 --- !u!4 &2130149997
 Transform:
   m_ObjectHideFlags: 0

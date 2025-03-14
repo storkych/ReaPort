@@ -115,11 +115,12 @@ public class RabbitMQListener : MonoBehaviour
                 string fromNode = data["from"]?.ToString();
                 string toNode = data["to"]?.ToString();
                 string vehicleId = data["vehicle_id"]?.ToString();
+                string with_airplane = data["with_airplane"]?.ToString();
                 float distance = float.Parse(data["distance"]?.ToString());
 
                 Debug.Log($"Moving vehicle {vehicleId} from {fromNode} to {toNode}");
 
-                VehicleManager.Instance.MoveVehicle(vehicleId, fromNode, toNode, distance);
+                VehicleManager.Instance.MoveVehicle(vehicleId, fromNode, toNode, distance, with_airplane);
             }
             else if (type == "map_refreshed")
             {

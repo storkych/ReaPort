@@ -62,4 +62,10 @@ public class Vehicle : MonoBehaviour
             }
         }
     }
+
+    public IEnumerator DelayedMove(Node targetNode, float timeToMove)
+    {
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(MoveTo(targetNode, timeToMove));
+    }
 }

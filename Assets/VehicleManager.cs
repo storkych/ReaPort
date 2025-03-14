@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -154,10 +155,21 @@ public class VehicleManager : MonoBehaviour
         }
     }
 
-    public void MoveVehicle(string vehicleId, string fromNode, string toNode, float distance)
+    public void MoveVehicle(string vehicleId, string fromNode, string toNode, float distance, string withAirplane = "")
     {
-        //fromNode = GetCorrectNodeId(fromNode); // Проверка и корректировка для исходной ноды
-        toNode = GetCorrectNodeId(toNode, vehicles[vehicleId].VehicleType); // Проверка и корректировка для целевой ноды
+        toNode = GetCorrectNodeId(toNode, vehicles[vehicleId].VehicleType);
+
+        if (toNode == "airstrip")
+        {
+            if (fromNode == "airplane_from_parking_1")
+            {
+                toNode = "airstrip_1";
+            }
+            else if (fromNode == "airplane_from_parking_2")
+            {
+                toNode = "airstrip_2";
+            }
+        }
 
         if (!vehicles.ContainsKey(vehicleId))
         {
@@ -173,6 +185,12 @@ public class VehicleManager : MonoBehaviour
 
         var vehicle = vehicles[vehicleId];
         float timeToMove = distance / 25f; // Делим дистанцию на скорость (25 ед/сек)
+
         vehicle.StartCoroutine(vehicle.MoveTo(nodes[toNode], timeToMove));
+        if (!string.IsNullOrEmpty(withAirplane) && vehicles.ContainsKey(withAirplane))
+        {
+            var airplane = vehicles[withAirplane];
+            airplane.StartCoroutine(airplane.DelayedMove(nodes[toNode], timeToMove));
+        }
     }
 }
