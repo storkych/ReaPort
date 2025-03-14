@@ -5,8 +5,10 @@
 
 
 ## Скачать билд:
-[![Download ZIP](https://img.shields.io/badge/Download%20ZIP-blue?style=flat-square&logo=download&logoColor=white)]()
-
+[![Download ZIP](https://img.shields.io/badge/Download%20ZIP-blue?style=flat-square&logo=download&logoColor=white)](https://github.com/storkych/ReaPort/raw/main/Build.zip)
+- Скачайте и разархивируйте архив
+- Запустите ReaPort.exe
+- Для переключение режима в полный экран и обратно используйте ALT + ENTER
 
 # Документация API RabbitMQ и Табло Рейсов
 
