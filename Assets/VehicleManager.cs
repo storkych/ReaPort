@@ -193,4 +193,54 @@ public class VehicleManager : MonoBehaviour
             airplane.StartCoroutine(airplane.DelayedMove(nodes[toNode], timeToMove));
         }
     }
+
+    public void HandleTakeoff(string vehicleId)
+    {
+        if (!vehicles.ContainsKey(vehicleId))
+        {
+            Debug.LogError($"Vehicle {vehicleId} not found!");
+            return;
+        }
+
+        var vehicle = vehicles[vehicleId];
+        string currentNodeId = vehicle.CurrentNode.NodeId;
+        string takeoffNodeId = "";
+
+        if (currentNodeId == "airstrip_1")
+        {
+            takeoffNodeId = "takeoff_1";
+        }
+        else if (currentNodeId == "airstrip_2")
+        {
+            takeoffNodeId = "takeoff_2";
+        }
+        else
+        {
+            Debug.LogError($"Vehicle {vehicleId} is not at a valid airstrip node for takeoff!");
+            return;
+        }
+
+        if (!nodes.ContainsKey(takeoffNodeId))
+        {
+            Debug.LogError($"Takeoff node {takeoffNodeId} not found!");
+            return;
+        }
+
+        float timeToMove = 5f; // Время перемещения к взлётной полосе
+        vehicle.StartCoroutine(vehicle.MoveTo(nodes[takeoffNodeId], timeToMove));
+        StartCoroutine(RemoveVehicleAfterDelay(vehicleId, 5f));
+    }
+
+    private IEnumerator RemoveVehicleAfterDelay(string vehicleId, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (vehicles.ContainsKey(vehicleId))
+        {
+            Destroy(vehicles[vehicleId].gameObject);
+            vehicles.Remove(vehicleId);
+            Debug.Log($"Vehicle {vehicleId} has taken off and been removed.");
+        }
+    }
+
 }

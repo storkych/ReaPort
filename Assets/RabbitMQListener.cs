@@ -122,6 +122,12 @@ public class RabbitMQListener : MonoBehaviour
 
                 VehicleManager.Instance.MoveVehicle(vehicleId, fromNode, toNode, distance, with_airplane);
             }
+            else if (type == "vehicle_takeoff")
+            {
+                string vehicle_id = data["vehicle_id"]?.ToString();
+                VehicleManager.Instance.HandleTakeoff(vehicle_id);
+
+            }
             else if (type == "map_refreshed")
             {
                 VehicleManager.Instance.RefreshMap();

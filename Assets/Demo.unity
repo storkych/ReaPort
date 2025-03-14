@@ -11510,7 +11510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1a8e4b3969c3920408ff12520c67c779, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 101.93
+      value: 102
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1a8e4b3969c3920408ff12520c67c779, type: 3}
       propertyPath: m_LocalPosition.y
@@ -17601,14 +17601,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "SU003: \u041C\u043E\u0441\u043A\u0432\u0430 -> \u041C\u043E\u0441\u0438\u043F\u0441\u043A,
-    Arrival Time: 13.03.2025 23:34:11, Landed: True\nSU002: \u041C\u043E\u0441\u043A\u0432\u0430
-    -> \u041C\u043E\u0441\u0438\u043F\u0441\u043A, Arrival Time: 14.03.2025 1:18:05,
-    Landed: True\nSU001: \u041C\u043E\u0441\u043A\u0432\u0430 -> \u041C\u043E\u0441\u0438\u043F\u0441\u043A,
-    Arrival Time: 13.03.2025 23:14:59, Landed: True\nSU001: \u041C\u043E\u0441\u043A\u0432\u0430
-    -> \u041C\u043E\u0441\u0438\u043F\u0441\u043A, Arrival Time: 13.03.2025 23:14:59,
-    Landed: True\nSU001: \u041C\u043E\u0441\u043A\u0432\u0430 -> \u041C\u043E\u0441\u0438\u043F\u0441\u043A,
-    Arrival Time: 13.03.2025 23:14:59, Landed: True"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -24896,7 +24889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1a8e4b3969c3920408ff12520c67c779, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 115.93
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1a8e4b3969c3920408ff12520c67c779, type: 3}
       propertyPath: m_LocalPosition.y
@@ -29752,7 +29745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1a8e4b3969c3920408ff12520c67c779, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 101.93
+      value: 102
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1a8e4b3969c3920408ff12520c67c779, type: 3}
       propertyPath: m_LocalPosition.y
@@ -41452,14 +41445,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "KU001: \u041C\u043E\u0441\u0438\u043F\u0441\u043A -> \u041C\u043E\u0441\u043A\u0432\u0430,
-    Departure Time: 14.03.2025 2:42:21\nKU002: \u041C\u043E\u0441\u0438\u043F\u0441\u043A
-    -> \u041C\u043E\u0441\u043A\u0432\u0430, Departure Time: 14.03.2025 0:14:17\nKU003:
-    \u041C\u043E\u0441\u0438\u043F\u0441\u043A -> \u041C\u043E\u0441\u043A\u0432\u0430,
-    Departure Time: 14.03.2025 0:23:30\nKU004: \u041C\u043E\u0441\u0438\u043F\u0441\u043A
-    -> \u041C\u043E\u0441\u043A\u0432\u0430, Departure Time: 14.03.2025 0:33:53\nKU005:
-    \u041C\u043E\u0441\u0438\u043F\u0441\u043A -> \u041C\u043E\u0441\u043A\u0432\u0430,
-    Departure Time: 13.03.2025 23:51:50"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -43981,7 +43967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1a8e4b3969c3920408ff12520c67c779, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 115.93
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1a8e4b3969c3920408ff12520c67c779, type: 3}
       propertyPath: m_LocalPosition.y
