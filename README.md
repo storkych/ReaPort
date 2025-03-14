@@ -1,11 +1,22 @@
+![Unity](https://img.shields.io/badge/Unity-000000?style=flat-square&logo=unity&logoColor=white)
+![Unity Web Request](https://img.shields.io/badge/Unity%20Web%20Request-000000?style=flat-square&logo=unity&logoColor=white)
+![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=flat-square&logo=rabbitmq&logoColor=white)
+![Newtonsoft.Json](https://img.shields.io/badge/Newtonsoft.Json-FF69B4?style=flat-square&logo=json&logoColor=white)
+
+
+## Скачать билд:
+[![Download ZIP](https://img.shields.io/badge/Download%20ZIP-blue?style=flat-square&logo=download&logoColor=white)]()
+
+
 # Документация API RabbitMQ и Табло Рейсов
 
 ## Обзор
 - [API RabbitMQ](#api-rabbitmq)
 - [API Табло Рейсов](#API-Табло-Рейсов)
+- [Описание проекта и установка](#Описание-проекта-и-установка)
 
-
-Этот API слушает сообщения из очереди RabbitMQ и обрабатывает различные события, связанные с управлением транспортными средствами. Также он взаимодействует с API табло рейсов для получения информации о прилетающих и вылетающих рейсах.
+Приложение отображает работу модулей системы reaport в 3D.
+API слушает сообщения из очереди RabbitMQ и обрабатывает различные события, связанные с работой аэропорта. Также он взаимодействует с API табло рейсов для получения информации о прилетающих и вылетающих рейсах.
 
 ---
 
@@ -249,3 +260,49 @@ foreach (var flight in flightsArray)
     Debug.Log($"Рейс {flightId}: {departureCity} -> {arrivalCity}");
 }
 ```
+
+
+# Описание проекта и установка
+
+## Требования
+
+Для запуска проекта необходима версия ![Unity](https://img.shields.io/badge/Unity-000000?style=flat-square&logo=unity&logoColor=white) 2022.3.16f1.  
+[Подробнее о версии 2022.3.16f1](https://unity.com/ru/releases/editor/whats-new/2022.3.16)  
+
+Для удобства рекомендуется установить [Unity Hub](https://unity.com/download), который упростит процесс установки и управления версиями Unity.
+
+## Структура проекта
+
+Проект включает в себя следующие папки и файлы:
+
+```
++---Assets
+|   |   Airport.unity        # Основная сцена аэропорта
+|   |   
+|   +---Plugins
+|   |       RabbitMQ.Client.dll           # Библиотека для работы с RabbitMQ
+|   |       System.Runtime.CompilerServices.Unsafe.dll  # Библиотека для небезопасных операций с памятью
+|   |       System.Threading.Channels.dll          # Библиотека для работы с каналами потоков
+|   +---SimpleAirport               # Ассет с 3D моделями аэропорта
+|   +---TextMesh Pro               # Качественный текст UI
+|   +---_Animations
+|   |       # Анимации и контроллеры анимаций машинок обслуживания
+|   +---_Prefabs
+|   |   |   
+|   |   +---UI
+|   |   |   # Блоки для чата    
+|   |   \---Vehicles
+|   |       # Машины разных типов    
+|   \---_Scripts
+|           FlightBoardController.cs    # Работа с табло расписания
+|           MessageBlock.cs             # Блок сообщения в чате логов
+|           Node.cs                     # Узел передвижения
+|           RabbitMQListener.cs        # Чтение и обработка очереди RabbitMQ
+|           UiManager.cs               # Менеджер интерфейса
+|           Vehicle.cs                 # Транспортное средство (машины и самолёты)
+|           VehicleManager.cs          # Менеджер всех ТС на карте
+```
+
+
+
+
