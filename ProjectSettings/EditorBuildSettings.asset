@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Airport.unity
+    guid: a865b6be844df354eafc212fe0f1c973
   m_configObjects: {}
