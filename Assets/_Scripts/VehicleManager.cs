@@ -159,6 +159,16 @@ public class VehicleManager : MonoBehaviour
     {
         toNode = GetCorrectNodeId(toNode, vehicles[vehicleId].VehicleType);
 
+        if (vehicleId.Contains("follow-me"))
+        {
+            if (vehicles[vehicleId].CurrentNode.NodeId == "airstrip_1" || vehicles[vehicleId].CurrentNode.NodeId == "airstrip_2")
+            {
+                vehicles[vehicleId].StartCoroutine(vehicles[vehicleId].MoveTo(nodes["airstrip"], 2f));
+                vehicles[vehicleId].StartCoroutine(vehicles[vehicleId].DelayedMove(nodes[toNode], 2f));
+                return;
+            }
+        }
+
         if (toNode == "airstrip")
         {
             if (fromNode == "airplane_from_parking_1")
